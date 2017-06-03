@@ -22,12 +22,12 @@ public class Main {
             exit(0);
         }
 
+        String username = args[0].trim();
         String rawText;
-        String username;
         String message;
 
-        if (jedis.pubsubChannels("*").contains(args[0])) {
-            System.out.println("User '" + args[0] + " already exists. Try with different user");
+        if (username.contains(" ") || jedis.pubsubChannels("*").contains(args[0])) {
+            System.out.println("User '" + username + "' already exists or invalid user name. Try with different user name without space between them");
             exit(0);
         }
 
