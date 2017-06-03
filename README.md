@@ -11,8 +11,8 @@ The files in this repository are, unless stated otherwise, released under the Ap
 
 Simple example demonstrating chat application on console using redis pubsub.
 
-Upon initialization it create new channel with argumented username and subscribe to that channel. If any new message published for this channel name it will be shown on console.
-User can also reply to that message using that username and their message.
+Upon execution it creates a new channel with argumented username and subscribe to that channel. If any new messages published for this channel name it will be shown on the console.
+User can also reply to that message using username and their message.
 
 
 ## Dependencies and Installation

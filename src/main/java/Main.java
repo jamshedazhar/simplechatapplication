@@ -14,15 +14,20 @@ public class Main {
 
     private static final String HOSTNAME = "127.0.0.1";
     private static Jedis jedis = new Jedis(HOSTNAME);
+    private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        if (args.length < 1) {
+            System.out.println("Usage: " + Main.class + " <username>");
+            exit(0);
+        }
+
         String rawText;
         String username;
         String message;
 
-        if (args.length < 1) {
-            System.out.println("Usage: " + Main.class + " <username>");
+        if (jedis.pubsubChannels("*").contains(args[0])) {
+            System.out.println("User '" + args[0] + " already exists. Try with different user");
             exit(0);
         }
 
